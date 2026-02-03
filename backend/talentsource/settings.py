@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-change-this-in-production-12345678901234567890'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.talentsourcertl.com', 'talentsourcertl.com']
 
 
 # Application definition
@@ -118,7 +118,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -131,7 +136,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:5173",
+    "http://www.talentsourcertl.com",
+    "https://www.talentsourcertl.com",
+    "http://talentsourcertl.com",
+    "https://talentsourcertl.com",
 ]
+
+# Production settings
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.talentsourcertl.com', 'talentsourcertl.com']
 
 CORS_ALLOW_CREDENTIALS = True
 
