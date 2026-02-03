@@ -1,0 +1,27 @@
+.footer {
+  background-color: var(--charcoal);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0;
+  }
+}

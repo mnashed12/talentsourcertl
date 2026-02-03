@@ -1,0 +1,57 @@
+.expertise {
+  padding: 6rem 0;
+  background: white;
+}
+
+.expertise h2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 3rem;
+  color: var(--charcoal);
+}
+
+.expertise h2 strong {
+  font-weight: 600;
+}
+
+.expertise-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.expertise-item {
+  padding: 1.5rem;
+  border-left: 3px solid var(--navy-light);
+  background: var(--bg-light);
+}
+
+.expertise-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.expertise-item p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .expertise {
+    padding: 4rem 0;
+  }
+  
+  .expertise h2 {
+    font-size: 2rem;
+  }
+  
+  .expertise-list {
+    grid-template-columns: 1fr;
+  }
+}
