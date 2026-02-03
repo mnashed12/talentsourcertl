@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-change-this-in-production-12345678901234567890'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.talentsourcertl.com', 'talentsourcertl.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.talentsourcertl.com', 'talentsourcertl.com', 'simpleciti.pythonanywhere.com']
 
 
 # Application definition
