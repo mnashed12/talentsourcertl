@@ -14,13 +14,18 @@ function Expertise() {
     <section id="expertise" className="expertise section">
       <div className="container">
         <h2>Areas of <strong>Expertise</strong></h2>
-        <div className="expertise-list">
-          {expertiseAreas.map((area, index) => (
-            <div key={index} className="expertise-item">
-              <h4>{area.title}</h4>
-              <p>{area.description}</p>
-            </div>
-          ))}
+        <div className="expertise-content">
+          <div className="expertise-image">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=800&fit=crop&q=80" alt="Professional workspace" />
+          </div>
+          <div className="expertise-list">
+            {expertiseAreas.map((area, index) => (
+              <div key={index} className="expertise-item">
+                <h4>{area.title}</h4>
+                <p>{area.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

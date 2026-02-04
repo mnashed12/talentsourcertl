@@ -1,6 +1,19 @@
 .focus {
   padding: 6rem 0;
   background: var(--bg-light);
+  position: relative;
+}
+
+.focus::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d0d0d0 20%, #d0d0d0 80%, transparent);
 }
 
 .focus h2 {
@@ -23,22 +36,39 @@
   line-height: 1.7;
 }
 
+.focus-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.focus-image {
+  width: 100%;
+  order: 2;
+}
+
+.focus-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 1.5rem;
 }
 
 .focus-card {
   background: white;
-  padding: 2.5rem;
-  border-radius: 16px;
+  padding: 2rem;
+  border-radius: 12px;
   border: 2px solid transparent;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -61,8 +91,8 @@
 }
 
 .focus-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   border-color: var(--card-color);
 }
 
@@ -95,6 +125,15 @@
 }
 
 @media (max-width: 968px) {
+  .focus-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .focus-image {
+    order: 0;
+  }
+  
   .focus-grid {
     grid-template-columns: 1fr;
   }
