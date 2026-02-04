@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from django.conf import settings
+import json
 
 def api_root(request):
     return JsonResponse({
@@ -28,7 +32,55 @@ def api_root(request):
         }
     })
 
+@csrf_exempt
+def contact_form(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+    try:
+        data = json.loads(request.body)
+        name = data.get('name', '').strip()
+        email = data.get('email', '').strip()
+        phone = data.get('phone', '').strip()
+        message = data.get('message', '').strip()
+        
+        if not name or not email or not message:
+            return JsonResponse({'error': 'Name, email, and message are required'}, status=400)
+        
+        # Build email content
+        email_subject = f'TalentSourceRTL Contact: {name}'
+        email_body = f"""
+New contact form submission from TalentSourceRTL website:
+
+Name: {name}
+Email: {email}
+Phone: {phone if phone else 'Not provided'}
+
+Message:
+{message}
+
+---
+This message was sent from the TalentSourceRTL contact form.
+        """
+        
+        # Send email
+        send_mail(
+            subject=email_subject,
+            message=email_body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_EMAIL],
+            fail_silently=False,
+        )
+        
+        return JsonResponse({'success': True, 'message': 'Your message has been sent successfully!'})
+        
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', api_root, name='api-root'),
+    path('api/contact/', contact_form, name='contact-form'),
 ]

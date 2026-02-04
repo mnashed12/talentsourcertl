@@ -6,7 +6,7 @@
 }
 
 .contact-container {
-  max-width: 800px;
+  max-width: 700px;
 }
 
 .contact h2 {
@@ -28,6 +28,69 @@
   line-height: 1.7;
 }
 
+.contact-form {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #888;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-status {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.form-status.success {
+  background: rgba(72, 187, 120, 0.2);
+  color: #68d391;
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.form-status.error {
+  background: rgba(245, 101, 101, 0.2);
+  color: #fc8181;
+  border: 1px solid rgba(245, 101, 101, 0.3);
+}
+
 .contact-button {
   display: inline-block;
   padding: 1.2rem 3rem;
@@ -38,11 +101,30 @@
   border-radius: 4px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
-.contact-button:hover {
+.contact-button:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact-email {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.contact-email a {
+  color: white;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -56,6 +138,10 @@
   
   .contact-intro {
     font-size: 1.05rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
   }
   
   .contact-button {
