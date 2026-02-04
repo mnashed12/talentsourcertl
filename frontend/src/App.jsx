@@ -3,7 +3,6 @@ import './App.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Focus from './components/Focus'
-import Stats from './components/Stats'
 import Process from './components/Process'
 import Expertise from './components/Expertise'
 import Contact from './components/Contact'
@@ -31,7 +30,6 @@ function App() {
       <main>
         <Hero />
         <Focus />
-        <Stats />
         <Process />
         <Expertise />
         <Contact />
