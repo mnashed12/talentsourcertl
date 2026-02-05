@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Partners from './components/Partners'
 import Focus from './components/Focus'
 import Process from './components/Process'
 import Expertise from './components/Expertise'
@@ -29,6 +30,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Partners />
         <Focus />
         <Process />
         <Expertise />

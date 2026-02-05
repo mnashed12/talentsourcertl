@@ -1,30 +1,44 @@
 .focus {
-  padding: 5rem 0;
-  background: white;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  min-height: 500px;
   position: relative;
+  background: white;
+  padding: 0;
+}
+
+.focus-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.focus-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.focus-image-fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  background: linear-gradient(to right, transparent 0%, white 100%);
 }
 
 .focus-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
   align-items: center;
-}
-
-.focus-image {
-  width: 100%;
-  position: relative;
-}
-
-.focus-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  padding: 4rem;
+  background: white;
 }
 
 .focus-text {
-  padding: 2rem 0;
+  max-width: 500px;
 }
 
 .focus-text h2 {
@@ -58,19 +72,35 @@
 }
 
 @media (max-width: 968px) {
-  .focus-content {
+  .focus {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    min-height: auto;
+  }
+  
+  .focus-image-container {
+    height: 350px;
+  }
+  
+  .focus-image-fade {
+    display: none;
+  }
+  
+  .focus-content {
+    padding: 3rem 2rem;
   }
   
   .focus-text {
-    padding: 0;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .focus {
-    padding: 3rem 0;
+  .focus-image-container {
+    height: 280px;
+  }
+  
+  .focus-content {
+    padding: 2rem 1.5rem;
   }
   
   .focus-text h2 {
