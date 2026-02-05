@@ -1,41 +1,28 @@
 import './Process.css'
 
 function Process() {
-  const steps = [
-    {
-      number: 1,
-      title: 'Discovery',
-      description: 'We conduct in-depth conversations to understand your career aspirations, experience, and ideal next opportunity.'
-    },
-    {
-      number: 2,
-      title: 'Market Mapping',
-      description: 'Leveraging our network, we identify positions that align with your expertise and professional goals.'
-    },
-    {
-      number: 3,
-      title: 'Strategic Positioning',
-      description: 'We prepare and present you to select opportunities where your background creates the strongest value proposition.'
-    },
-    {
-      number: 4,
-      title: 'Partnership',
-      description: 'From first conversation through offer negotiation, we advocate for your interests and ensure optimal outcomes.'
-    }
-  ]
-
   return (
     <section id="process" className="process section">
       <div className="container">
-        <h2>Our <strong>Process</strong></h2>
-        <div className="process-steps">
-          {steps.map((step, index) => (
-            <div key={index} className="step">
-              <div className="step-number">{step.number}</div>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
+        <h2>How Can We <strong>Help You?</strong></h2>
+        <div className="process-content">
+          <p className="process-lead">
+            Whether you're an executive seeking your next leadership role or a firm looking to build your team, we provide confidential, personalized guidance throughout the entire process.
+          </p>
+          <div className="process-grid">
+            <div className="process-block">
+              <h3>For Candidates</h3>
+              <p>
+                We conduct in-depth conversations to understand your career aspirations, experience, and ideal next opportunity. Leveraging our network, we identify positions that align with your expertise and professional goals. From first conversation through offer negotiation, we advocate for your interests.
+              </p>
             </div>
-          ))}
+            <div className="process-block">
+              <h3>For Clients</h3>
+              <p>
+                We take time to understand your firm's culture, strategy, and specific requirements. Our market mapping approach identifies candidates who not only have the right experience but will thrive in your environment. We handle the entire search process with discretion and efficiency.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

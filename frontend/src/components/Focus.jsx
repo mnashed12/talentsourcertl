@@ -1,47 +1,35 @@
 import './Focus.css'
 
 function Focus() {
-  const focusAreas = [
-    {
-      title: 'Private Credit Platforms',
-      description: 'Senior leadership positions at established and emerging private credit managers, from investment principals to C-suite executives.',
-      color: '#6366F1'
-    },
-    {
-      title: 'RTL Specialists',
-      description: 'Experienced professionals in real estate transition lending, bridge financing, and construction lending at funds and specialty finance firms.',
-      color: '#EC4899'
-    },
-    {
-      title: 'Origination & Underwriting',
-      description: 'Top-tier talent in deal sourcing, credit analysis, and portfolio management across diverse private credit strategies.',
-      color: '#10B981'
-    },
-    {
-      title: 'Investment Leadership',
-      description: 'Partners, managing directors, and senior investment professionals driving strategy and capital deployment.',
-      color: '#F59E0B'
+  const scrollToContact = () => {
+    const element = document.getElementById('contact')
+    if (element) {
+      const offset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
     }
-  ]
+  }
 
   return (
     <section id="focus" className="focus section">
       <div className="container">
-        <h2>Our <strong>Focus</strong></h2>
-        <p className="section-intro">
-          We specialize exclusively in executive recruitment for the private credit ecosystem, with deep expertise in real estate transition lending, direct lending, and structured finance.
-        </p>
         <div className="focus-content">
           <div className="focus-image">
-            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=800&fit=crop&q=80" alt="Urban skyline" />
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&q=80" 
+              alt="Team collaboration" 
+            />
           </div>
-          <div className="focus-grid">
-          {focusAreas.map((area, index) => (
-            <div key={index} className="focus-card" style={{'--card-color': area.color}}>
-              <h3>{area.title}</h3>
-              <p>{area.description}</p>
-            </div>
-          ))}
+          <div className="focus-text">
+            <h2>Our <strong>Focus</strong></h2>
+            <p className="focus-intro">
+              We specialize exclusively in executive recruitment for the private credit ecosystem, with deep expertise in real estate transition lending, direct lending, and structured finance.
+            </p>
+            <p>
+              Our approach combines industry insight with personalized service. We understand that each placement represents a pivotal career decision and a critical hire for our clients.
+            </p>
+            <button onClick={scrollToContact} className="btn btn-primary">Learn More</button>
           </div>
         </div>
       </div>
